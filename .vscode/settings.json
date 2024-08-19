@@ -1,0 +1,31 @@
+{
+    // Use a separate target dir for Rust Analyzer. Helpful if you want to use Rust
+    // Analyzer and cargo on the command line at the same time.
+    // "rust-analyzer.cargo.targetDir": "target/vscode-rust-analyzer",
+    // Improve stability
+    // "rust-analyzer.server.extraEnv": {
+    //   "CHALK_OVERFLOW_DEPTH": "100000000",
+    //   "CHALK_SOLVER_MAX_SIZE": "10000000"
+    // },
+    // // Check feature-gated code
+    // "rust-analyzer.cargo.features": "all",
+    "rust-analyzer.cargo.extraEnv": {
+        // Skip building WASM, there is never need for it here
+        "SKIP_WASM_BUILD": "1"
+    },
+    // Don't expand some problematic proc_macros
+    "rust-analyzer.procMacro.ignored": {
+        "async-trait": [
+            "async_trait"
+        ],
+        "napi-derive": [
+            "napi"
+        ],
+        "async-recursion": [
+            "async_recursion"
+        ],
+        "async-std": [
+            "async_std"
+        ]
+    },
+}
