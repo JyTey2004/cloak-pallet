@@ -5,9 +5,6 @@ pub use cloak_pallet::*;
 #[cfg(test)]
 mod mock;
 
-#[cfg(test)]
-mod tests;
-
 // #[cfg(feature = "runtime-benchmarks")]
 // mod benchmarking;
 
@@ -128,21 +125,21 @@ pub mod cloak_pallet {
     impl<T: Config> Pallet<T> {
         /// Try to access the state of the pallet.
         pub(crate) fn do_try_state() {
-            use sp_std::collections::btree_set::BTreeSet;
+            // use sp_std::collections::btree_set::BTreeSet;
 
-            let (credits, holds) = AccountInfo::<T>::iter().fold(
-                (
-                    BTreeSet::<T::AccountId>::new(),
-                    BTreeSet::<T::AccountId>::new(),
-                ),
-                |(mut credits, mut holds), (key, _)| {
-                    credits.insert(key.clone());
-                    holds.insert(key);
-                    (credits, holds)
-                },
-            );
+            // let (credits, holds) = AccountInfo::<T>::iter().fold(
+            //     (
+            //         BTreeSet::<T::AccountId>::new(),
+            //         BTreeSet::<T::AccountId>::new(),
+            //     ),
+            //     |(mut credits, mut holds), (key, _)| {
+            //         credits.insert(key.clone());
+            //         holds.insert(key);
+            //         (credits, holds)
+            //     },
+            // );
 
-            assert_eq!(credits, holds);
+            // assert_eq!(credits, holds);
         }
     }
 

@@ -38,6 +38,13 @@ sp-runtime = { version = "37.0.0", default-features = false, features = [
 # local pallets
 pallet-cloak = { path = "../pallets/cloak-pallet", default-features = false }
 
+fhe-math = { path = "../crates/fhe-math" }
+fhe-traits = { path = "../crates/fhe-traits" }
+fhe-util = { path = "../crates/fhe-util" }
+fhe = { path = "../crates/fhe" }
+
+getrandom = { version = "0.2.15", features = ["js"], default-features = false }
+
 [build-dependencies]
 substrate-wasm-builder = { version = "22.0.0", optional = true }
 
@@ -62,6 +69,7 @@ std = [
 	"sp-genesis-builder/std",
 	"sp-runtime/std",
 	"substrate-wasm-builder",
+	"getrandom/std",
 ]
 runtime-benchmarks = [
 	"frame/runtime-benchmarks",

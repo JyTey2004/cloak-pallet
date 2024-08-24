@@ -26,7 +26,7 @@ frame_support::construct_runtime! {
     pub struct Test {
         System: frame_system,
         Balances: pallet_balances,
-        Pallet_Cognidex: pallet_cloak,
+        Pallet_Cloak: pallet_cloak,
     }
 }
 
@@ -77,7 +77,7 @@ impl pallet_balances::Config for Test {
     type MaxFreezes = ConstU32<10>;
 }
 
-impl pallet_cognidex::Config for Test {
+impl pallet_cloak::Config for Test {
     type RuntimeEvent = RuntimeEvent;
     type NativeBalance = Balances;
     type RuntimeCall = RuntimeCall;
@@ -109,14 +109,14 @@ impl StateBuilder {
         let balances = pallet_balances::GenesisConfig::<Test> {
             balances: self.initial_balances,
         };
-        let pallet_cognidex = pallet_cognidex::GenesisConfig::<Test> {
+        let pallet_cloak = pallet_cloak::GenesisConfig::<Test> {
             initial_accounts: self.initial_accounts,
         };
 
         let mut ext: TestExternalities = RuntimeGenesisConfig {
             system,
             balances,
-            pallet_cognidex,
+            pallet_cloak,
         }
         .build_storage()
         .unwrap()
@@ -124,7 +124,7 @@ impl StateBuilder {
 
         ext.execute_with(|| {
             test();
-            Pallet_Cognidex::do_try_state();
+            Pallet_Cloak::do_try_state();
         });
     }
 }

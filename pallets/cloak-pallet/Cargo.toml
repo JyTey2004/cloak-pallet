@@ -1,6 +1,6 @@
 [package]
 name = "pallet-cloak"
-version = "4.0.0-dev"
+version = "0.1.0-beta.8"
 description = "FRAME pallet template for defining custom runtime logic."
 authors = ["Substrate DevHub <https://github.com/substrate-developer-hub>"]
 homepage = "https://substrate.io"
@@ -27,6 +27,12 @@ sp-core = { version = "33.0.1", default-features = false }
 sp-io = { version = "36.0.0", default-features = false }
 sp-runtime = { version = "37.0.0", default-features = false }
 sp-std = { version = "14.0.0", default-features = false }
+
+fhe-math = { path = "../../crates/fhe-math" }
+fhe-traits = { path = "../../crates/fhe-traits" }
+fhe-util = { path = "../../crates/fhe-util" }
+fhe = { path = "../../crates/fhe" }
+
 
 [dev-dependencies]
 pallet-balances = { version = "35.0.0" }
